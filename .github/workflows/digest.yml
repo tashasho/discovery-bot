@@ -34,7 +34,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL || 'discovery-feed' }}
           PICKS_PER_DIGEST: ${{ vars.PICKS_PER_DIGEST || '5' }}
-          ENABLE_REDDIT: 'true'
+          ENABLE_REDDIT: 'false'   # Reddit blocks Actions egress IPs
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             python main.py --dry-run
@@ -48,7 +48,9 @@ jobs:
           if [ -f data/seen.json ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/seen.json
-            git diff --cached --quiet || git commit -m "chore: update dedup state [skip ci]"
-            git push || true
+            git add -f data/seen.json   # -f because seen.json is in .gitignore for local dev
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: update dedup state [skip ci]"
+              git push
+            fi
           fi
