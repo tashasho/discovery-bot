@@ -139,6 +139,11 @@
     "gh-microsoft-VibeVoice",
     "gh-openai-plugins",
     "gh-santifer-career-ops",
-    "gh-openai-whisper"
+    "gh-openai-whisper",
+    "gh-RyanCodrai-turbovec",
+    "gh-TapXWorld-ChinaTextbook",
+    "gh-aaif-goose-goose",
+    "gh-microsoft-pg_durable",
+    "gh-refactoringhq-tolaria"
   ]
 }
