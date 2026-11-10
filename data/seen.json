@@ -664,6 +664,11 @@
     "gh-meta-astryx",
     "gh-vercel-labs-agent-browser",
     "gh-google-deepmind-mujoco",
-    "gh-anthropics-claude-quickstarts"
+    "gh-anthropics-claude-quickstarts",
+    "gh-homeassistant-ai-ha-mcp",
+    "hn-50428907",
+    "gh-ranxianglei-billion-context",
+    "hn-50406292",
+    "hn-50368208"
   ]
 }
